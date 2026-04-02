@@ -5,16 +5,26 @@ import { expect, test } from "./fixtures";
 //   await seed();
 // });
 
-test.describe("SPEC NAME", () => {
+test.describe("Pages - Home", () => {
   test(
-    "Spec details",
+    "homepage shows post list with all required fields",
     {
-      tag: "@your-tag",
+      tag: "@pages",
     },
     async ({ page }) => {
       await page.goto("/");
 
-      await expect(await page.getByText("text")).toBeVisible();
+      //title
+      await expect(page.getByText("Boost your coversion rate")).toBeVisible();
+
+      //description (partial)
+      await expect(page.getByText("Illo sint voluptas")).toBeVisible();
+
+      //category
+      await expect(page.getByText("Node")).toBeVisible();
+
+      //date (partial)
+      await expect(page.getByText("Mon")).toBeVisible();
     },
   );
 });
